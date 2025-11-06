@@ -40,6 +40,9 @@ for goal in */*/*; do
         if [[ $version == 7* ]]
         then
         tail -n +4 builder/Dockerfile-pre-8-composer2 >> "$version/$base/$variant/Dockerfile"
+        elif [[ $version == 8.0 ]] || [[ $version == 8.1 ]]
+        then
+        tail -n +4 builder/Dockerfile-pre-8-2-composer2 >> "$version/$base/$variant/Dockerfile"
         else
         tail -n +4 builder/Dockerfile-composer2 >> "$version/$base/$variant/Dockerfile"
         fi
@@ -47,6 +50,9 @@ for goal in */*/*; do
         if [[ $version == 7* ]]
         then
         tail -n +4 builder/Dockerfile-pre-8 >> "$version/$base/$variant/Dockerfile"
+        elif [[ $version == 8.0 ]] || [[ $version == 8.1 ]]
+        then
+        tail -n +4 builder/Dockerfile-pre-8-2 >> "$version/$base/$variant/Dockerfile"
         else
         tail -n +4 builder/Dockerfile >> "$version/$base/$variant/Dockerfile"
         fi
